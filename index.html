@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Card maker</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <!--<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to card maker</h1>
+    <table class="table table-bordered">
+        <tr>
+            <td>name:</td>
+            <td><form id="myform"><input id="cardName" placeholder="card name" type="text" spellcheck="true"></form></td>
+            <td rowspan="12" id="yourCard"><p>your card:</p><canvas width="200" height="260"></canvas></td>
+        </tr>
+        <tr>
+            <td>color:</td>
+            <td>
+                <select id="cardColor">
+                    <option value="white">white</option>
+                    <option value="blue">blue</option>
+                    <option value="red">red</option>
+                    <option value="green">green</option>
+                    <option value="black">black</option>
+                    <option value="colorless">colorless</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>mana cost:</td>
+            <td><input type="number" min="0" max="99" value="0" form="myform" id="manaCost"></td>
+        </tr>
+        <tr>
+            <td>picture url:</td>
+            <td> <input type="file" onchange="processFiles(this.files)" id="uploadedPicture" form="myform"></td>
+        </tr>
+        <tr>
+            <td>type:</td>
+            <td>
+                <select id="typeCard">
+                    <option selected>Creature</option>
+                    <option>Artifact</option>
+                    <option>Artifact Creature</option>
+                    <option>Enchantment</option>
+                    <option>Spell</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>subtype:</td>
+            <td><input type="text" placeholder="subtype" spellcheck="true" autocomplete="on" form="myform" id="subType"></td>
+        </tr>
+        <tr>
+            <td>abilities:</td>
+            <td>
+                <textarea cols="40" rows="5" form="myform" id="abilities"></textarea>
+                <div><em>Insert:</em>
+                    <img src="res/old/t.png" id="t" onclick="insertClicked(this.id)"/>
+                    <img src="res/old/1.png" id="1" onclick="insertClicked(this.id)"/>
+                    <img src="res/old/2.png" id="2" onclick="insertClicked(this.id)"/>
+                    <img src="res/old/3.png" id="3" onclick="insertClicked(this.id)"/>
+                    <img src="res/old/4.png" id="4" onclick="insertClicked(this.id)"/>
+                    <img src="res/old/5.png" id="5" onclick="insertClicked(this.id)"/>
+                    <img src="res/old/6.png" id="6" onclick="insertClicked(this.id)"/>
+                    <img src="res/old/7.png" id="7" onclick="insertClicked(this.id)"/>
+                    <img src="res/old/8.png" id="8" onclick="insertClicked(this.id)"/>
+                    <img src="res/old/9.png" id="9" onclick="insertClicked(this.id)"/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>power / toughness:</td>
+            <td><input id="power" min="0" max="99" value="0" type="number" form="myform"><strong>/</strong><input min="0" max="99" value="0" id="toughness" type="number" form="myform"></td>
+        </tr>
+    </table>
+    <a id="genBtn" class="btn btn-success">Generate</a>
+    <a id="saveBtn" class="btn btn-primary">Save</a>
+    <input id="resBtn" class="btn btn-warning" type="reset" form="myform">
+</div>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/background.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
